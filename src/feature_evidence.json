@@ -2,19 +2,31 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-multi-page-richual-marketing-website-with-the-following-top-level-pages-and-navigation-home-about-richual-programs-membership-ritual-philosophy-and-apply",
-      "featureTitle": "Create a multi-page RICHUAL marketing website with the following top-level pages and navigation: Home, About RICHUAL, Programs, Membership, Ritual Philosophy, and Apply.",
+      "featureId": "feature-retry-the-previously-failed-build-update-so-the-project-builds-successfully-without-the-prior-ai-service-error-and-publish-the-updated-version-of-the-existing-richual-site",
+      "featureTitle": "Retry the previously failed build/update so the project builds successfully without the prior AI service error, and publish the updated version of the existing RICHUAL site.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-after-the-successful-rebuild-redeploy-perform-a-smoke-test-of-all-existing-routes-to-confirm-there-are-no-regressions-about-programs-membership-ritual-philosophy-apply-and-admin-applications",
+      "featureTitle": "After the successful rebuild/redeploy, perform a smoke test of all existing routes to confirm there are no regressions: /, /about, /programs, /membership, /ritual-philosophy, /apply, and /admin/applications.",
       "files": [
         "frontend/src/App.tsx",
         "frontend/src/components/site/HeaderNav.tsx",
-        "frontend/src/index.css",
-        "frontend/src/main.tsx",
-        "frontend/src/pages/AboutPage.tsx",
-        "frontend/src/pages/ApplyPage.tsx",
-        "frontend/src/pages/HomePage.tsx",
-        "frontend/src/pages/MembershipPage.tsx",
-        "frontend/src/pages/ProgramsPage.tsx",
-        "frontend/src/pages/RitualPhilosophyPage.tsx"
+        "frontend/src/utils/routes.ts"
       ],
       "components": [
         "authorization@4.0.0",
@@ -25,177 +37,18 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
+        "REQ-14"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-apply-a-consistent-richual-visual-theme-across-the-entire-site-matte-black-base-metallic-gold-primary-accents-deep-saffron-highlight-accents-bold-uppercase-headings-clean-modern-body-typography-high-contrast-minimal-premium-layout-overall-tone-should-feel-elite-intense-and-ritualistic-not-casual-or-commercial",
-      "featureTitle": "Apply a consistent RICHUAL visual theme across the entire site: matte black base, metallic gold primary accents, deep saffron highlight accents; bold uppercase headings; clean modern body typography; high-contrast, minimal, premium layout; overall tone should feel elite, intense, and ritualistic (not casual or commercial).",
+      "featureId": "feature-verify-the-end-to-end-application-submission-and-admin-review-flows-still-function-after-the-rebuild-submitting-an-application-from-the-apply-page-persists-it-in-the-backend-and-an-authenticated-admin-can-view-submissions-most-recent-first-on-admin-applications-while-non-admins-are-blocked",
+      "featureTitle": "Verify the end-to-end application submission and admin review flows still function after the rebuild: submitting an application from the Apply page persists it in the backend, and an authenticated admin can view submissions (most recent first) on /admin/applications while non-admins are blocked.",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-the-home-page-content-and-structure-with-hero-headline-enter-the-order-a-primary-cta-button-labeled-apply-for-membership-that-routes-to-the-apply-page-and-sections-that-introduce-the-concept-not-a-gym-initiation-display-the-four-ranks-and-show-short-discipline-code-statements-including-sanskrit-terms",
-      "featureTitle": "Implement the Home page content and structure with: hero headline \"Enter the Order.\", a primary CTA button labeled \"Apply for Membership\" that routes to the Apply page, and sections that introduce the concept (not a gym, initiation), display the four ranks, and show short discipline-code statements including Sanskrit terms (शक्ति, तपस्या, विकास).",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/pages/HomePage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-the-about-richual-page-to-explain-the-philosophy-the-ritual-disciplined-approach-and-why-richual-is-not-a-normal-gym-including-at-least-the-sanskrit-phrases-and-in-the-page-copy",
-      "featureTitle": "Implement the About RICHUAL page to explain the philosophy, the ritual/disciplined approach, and why RICHUAL is not a normal gym, including at least the Sanskrit phrases शक्ति, तपस्या, and विकास in the page copy.",
-      "files": [
-        "frontend/src/pages/AboutPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-the-programs-page-with-four-distinct-rank-sections-cards-initiate-warrior-titan-and-inner-circle-each-presented-as-a-rank-not-a-commodity-package-with-concise-commanding-descriptions",
-      "featureTitle": "Implement the Programs page with four distinct rank sections/cards: Initiate, Warrior, Titan, and Inner Circle, each presented as a rank (not a commodity package) with concise, commanding descriptions.",
-      "files": [
-        "frontend/src/pages/ProgramsPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-the-membership-page-emphasizing-an-application-based-entry-system-limited-seats-premium-positioning-and-an-elite-feel-with-a-clear-cta-that-routes-to-the-apply-page",
-      "featureTitle": "Implement the Membership page emphasizing an application-based entry system, limited seats, premium positioning, and an elite feel, with a clear CTA that routes to the Apply page.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/pages/MembershipPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-6"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-the-ritual-philosophy-page-describing-daily-rituals-with-clearly-separated-sections-for-morning-discipline-physical-training-meditation-wealth-focus-and-brotherhood-presented-as-a-structured-and-sacred-system",
-      "featureTitle": "Implement the Ritual Philosophy page describing daily rituals with clearly separated sections for: morning discipline, physical training, meditation, wealth focus, and brotherhood, presented as a structured and sacred system.",
-      "files": [
-        "frontend/src/pages/RitualPhilosophyPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-an-apply-page-with-a-form-containing-the-following-fields-name-age-current-fitness-level-income-goal-and-why-do-you-want-to-join-include-a-submit-button-labeled-begin-your-transformation",
-      "featureTitle": "Create an Apply page with a form containing the following fields: Name, Age, Current fitness level, Income goal, and Why do you want to join?; include a submit button labeled \"Begin Your Transformation.\"",
-      "files": [
-        "frontend/src/lib/validation/applyApplication.ts",
-        "frontend/src/pages/ApplyPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-8"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-wire-the-apply-form-submission-ui-to-call-the-backend-create-application-method-show-a-success-confirmation-state-after-submission-and-prevent-duplicate-submissions-from-the-same-ui-interaction-e-g-disable-the-button-while-submitting",
-      "featureTitle": "Wire the Apply form submission UI to call the backend create-application method; show a success confirmation state after submission and prevent duplicate submissions from the same UI interaction (e.g., disable the button while submitting).",
-      "files": [
-        "frontend/src/hooks/useSubmitApplication.ts",
-        "frontend/src/pages/ApplyPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-10"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-a-minimal-admin-only-review-page-not-linked-from-the-public-navigation-that-displays-the-list-of-submitted-applications-most-recent-first-protect-access-using-internet-identity-login-and-restrict-viewing-to-a-hardcoded-allowlist-of-admin-principals-configured-in-the-backend",
-      "featureTitle": "Add a minimal admin-only review page (not linked from the public navigation) that displays the list of submitted applications (most recent first). Protect access using Internet Identity login and restrict viewing to a hardcoded allowlist of admin principals configured in the backend.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/auth/LoginButton.tsx",
-        "frontend/src/components/site/HeaderNav.tsx",
         "frontend/src/hooks/useAdminApplications.ts",
-        "frontend/src/pages/AdminApplicationsPage.tsx"
+        "frontend/src/hooks/useSubmitApplication.ts",
+        "frontend/src/pages/AdminApplicationsPage.tsx",
+        "frontend/src/pages/ApplyPage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -206,28 +59,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-11"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-generate-and-apply-a-coherent-visual-art-direction-as-static-assets-smoke-embers-texture-subtle-temple-stone-texture-background-and-a-simple-richual-emblem-mark-use-them-across-the-site-as-backgrounds-accents-while-maintaining-readability-and-high-contrast",
-      "featureTitle": "Generate and apply a coherent visual art direction as static assets: smoke/embers texture, subtle temple/stone texture background, and a simple RICHUAL emblem mark; use them across the site as backgrounds/accents while maintaining readability and high contrast.",
-      "files": [
-        "frontend/src/components/site/HeaderNav.tsx",
-        "frontend/src/index.css",
-        "frontend/src/pages/HomePage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-12"
+        "REQ-15"
       ],
       "confidence": "high"
     }

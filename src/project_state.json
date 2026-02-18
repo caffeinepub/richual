@@ -1,15 +1,15 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 5,
   "summary": "Build and deploy the RICHUAL brand website (dark luxury black/gold, commanding tone) including core marketing pages and an application-based membership form.",
   "architectural_notes": [
     "Proposed build stack: React frontend + Motoko backend, with Internet Identity login (if needed)."
   ],
   "known_issues": [
-    "User expects a live website/URL; current outputs are prompts/copy only until the site is built and deployed."
+    "User expects a live website/URL; current outputs are prompts/copy only until the site is built and deployed.",
+    "Build/deploy pipeline encountered an AI service error during an attempted update; user requested a retry."
   ],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Metallic gold-on-black emblem mark with trident-inspired geometry, minimal, high contrast (richual-emblem.dim_512x512.png)\n- Seamless dark smoke texture with subtle ember sparks, high contrast but not busy (smoke-embers-texture.dim_2048x2048.png)\n- Dark stone/temple wall texture, subtle, seamless (temple-stone-texture.dim_2048x2048.png)\n- Wide cinematic dark gym silhouette background with dramatic lighting and smoke, no text (hero-gym-silhouette.dim_2400x1350.png)",
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-multi-page-richual-marketing-website-with-the-following-top-level-pages-and-navigation-home-about-richual-programs-membership-ritual-philosophy-and-apply",
@@ -96,6 +96,30 @@
       "title": "Generate and apply a coherent visual art direction as static assets: smoke/embers texture, subtle temple/stone texture background, and a simple RICHUAL emblem mark; use them across the site as backgrounds/accents while maintaining readability and high contrast.",
       "reqIds": [
         "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-retry-the-previously-failed-build-update-so-the-project-builds-successfully-without-the-prior-ai-service-error-and-publish-the-updated-version-of-the-existing-richual-site",
+      "title": "Retry the previously failed build/update so the project builds successfully without the prior AI service error, and publish the updated version of the existing RICHUAL site.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-the-successful-rebuild-redeploy-perform-a-smoke-test-of-all-existing-routes-to-confirm-there-are-no-regressions-about-programs-membership-ritual-philosophy-apply-and-admin-applications",
+      "title": "After the successful rebuild/redeploy, perform a smoke test of all existing routes to confirm there are no regressions: /, /about, /programs, /membership, /ritual-philosophy, /apply, and /admin/applications.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-the-end-to-end-application-submission-and-admin-review-flows-still-function-after-the-rebuild-submitting-an-application-from-the-apply-page-persists-it-in-the-backend-and-an-authenticated-admin-can-view-submissions-most-recent-first-on-admin-applications-while-non-admins-are-blocked",
+      "title": "Verify the end-to-end application submission and admin review flows still function after the rebuild: submitting an application from the Apply page persists it in the backend, and an authenticated admin can view submissions (most recent first) on /admin/applications while non-admins are blocked.",
+      "reqIds": [
+        "REQ-15"
       ],
       "version": 1
     }

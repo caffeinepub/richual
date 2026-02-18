@@ -6,8 +6,13 @@ import { Loader2, ShieldAlert } from 'lucide-react';
 
 export default function AdminApplicationsPage() {
   const { identity, isInitializing } = useInternetIdentity();
-  const { data: isAdmin, isLoading: isAdminLoading } = useIsAdmin();
-  const { data: applications, isLoading: applicationsLoading } = useAdminApplications();
+  const { data: isAdmin, isLoading: isAdminLoading, isFetched: isAdminFetched } = useIsAdmin();
+  
+  // Only enable applications query after admin check succeeds
+  const shouldFetchApplications = !!identity && isAdminFetched && isAdmin === true;
+  const { data: applications, isLoading: applicationsLoading, error: applicationsError } = useAdminApplications({
+    enabled: shouldFetchApplications,
+  });
 
   // Show loading while checking authentication
   if (isInitializing || isAdminLoading) {
@@ -36,13 +41,29 @@ export default function AdminApplicationsPage() {
   }
 
   // Show access denied if not admin
-  if (!isAdmin) {
+  if (isAdminFetched && !isAdmin) {
     return (
       <div className="min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-black to-background">
         <div className="container mx-auto px-4 max-w-md text-center">
           <ShieldAlert className="w-16 h-16 text-red-500 mx-auto mb-6" />
           <h1 className="text-3xl font-bold tracking-wider mb-4 text-gold uppercase">Access Denied</h1>
-          <p className="text-foreground/70 mb-8">You do not have permission to view this page.</p>
+          <p className="text-foreground/70 mb-8">You do not have permission to view this page. Only administrators can access the applications list.</p>
+          <LoginButton />
+        </div>
+      </div>
+    );
+  }
+
+  // Show error if applications fetch failed
+  if (applicationsError) {
+    return (
+      <div className="min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-black to-background">
+        <div className="container mx-auto px-4 max-w-md text-center">
+          <ShieldAlert className="w-16 h-16 text-red-500 mx-auto mb-6" />
+          <h1 className="text-3xl font-bold tracking-wider mb-4 text-gold uppercase">Error Loading Applications</h1>
+          <p className="text-foreground/70 mb-8">
+            {applicationsError instanceof Error ? applicationsError.message : 'Failed to load applications. Please try again.'}
+          </p>
           <LoginButton />
         </div>
       </div>

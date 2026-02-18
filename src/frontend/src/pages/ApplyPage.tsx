@@ -63,6 +63,7 @@ export default function ApplyPage() {
         incomeGoal: '',
         motivation: '',
       });
+      setErrors({});
     }
   };
 
@@ -118,8 +119,8 @@ export default function ApplyPage() {
           <form onSubmit={handleSubmit} className="border border-gold/30 bg-black/60 backdrop-blur-sm p-8 md:p-12">
             {submitError && (
               <div className="mb-6 p-4 border border-red-500/50 bg-red-500/10 text-red-400">
-                <p className="font-semibold">Submission failed</p>
-                <p className="text-sm">{submitError}</p>
+                <p className="font-semibold">Submission Failed</p>
+                <p className="text-sm mt-1">{submitError}</p>
               </div>
             )}
 
@@ -221,7 +222,7 @@ export default function ApplyPage() {
                 value={formData.incomeGoal}
                 onChange={handleChange}
                 placeholder="e.g., $100K/year, $1M net worth, Financial freedom"
-                className="w-full px-4 py-3 bg-black/80 border border-gold/30 text-foreground focus:border-gold focus:outline-none transition-colors placeholder:text-foreground/30"
+                className="w-full px-4 py-3 bg-black/80 border border-gold/30 text-foreground focus:border-gold focus:outline-none transition-colors"
                 disabled={isSubmitting}
               />
               {errors.incomeGoal && <p className="mt-1 text-sm text-red-400">{errors.incomeGoal}</p>}
@@ -237,8 +238,8 @@ export default function ApplyPage() {
                 value={formData.motivation}
                 onChange={handleChange}
                 rows={6}
-                placeholder="Tell us about your goals, what drives you, and why you're ready for this commitment..."
-                className="w-full px-4 py-3 bg-black/80 border border-gold/30 text-foreground focus:border-gold focus:outline-none transition-colors placeholder:text-foreground/30 resize-none"
+                placeholder="Tell us about your commitment to transformation..."
+                className="w-full px-4 py-3 bg-black/80 border border-gold/30 text-foreground focus:border-gold focus:outline-none transition-colors resize-none"
                 disabled={isSubmitting}
               />
               {errors.motivation && <p className="mt-1 text-sm text-red-400">{errors.motivation}</p>}
@@ -247,21 +248,17 @@ export default function ApplyPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-8 py-4 bg-gold text-black font-bold text-lg tracking-wider hover:bg-gold/90 transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-3"
+              className="w-full px-8 py-4 bg-gold text-black font-bold text-lg tracking-wider hover:bg-gold/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className="animate-spin" />
+                  <Loader2 className="w-5 h-5 animate-spin" />
                   SUBMITTING...
                 </>
               ) : (
-                'BEGIN YOUR TRANSFORMATION.'
+                'SUBMIT APPLICATION'
               )}
             </button>
-
-            <p className="mt-6 text-center text-sm text-foreground/60">
-              * All fields are required. Applications are reviewed carefully.
-            </p>
           </form>
         </div>
       </section>

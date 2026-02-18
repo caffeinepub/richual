@@ -1,309 +1,98 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "RICHUAL marketing website + application-based membership form (frontend)",
+  "title": "RICHUAL frontend rebuild hardening + route and flow verification",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Create required top-level marketing pages and persistent header navigation with distinct routes.",
+      "id": "REQ-13",
+      "summary": "Harden frontend codepaths to avoid build/update failures and ensure deploy-ready static assets are correctly wired.",
       "acceptanceCriteria": [
-        "A persistent header navigation provides links to Home, About, Programs, Membership, Ritual Philosophy, and Apply.",
-        "Each navigation item routes to a distinct page view.",
-        "All pages render without runtime errors and are usable on mobile and desktop screen sizes."
+        "A full build completes successfully (no AI service error during the build/update).",
+        "The updated version is published and accessible as a live site."
       ],
       "file_operations": [
         {
           "path": "frontend/src/App.tsx",
-          "operation": "create",
-          "description": "Create the app shell with a persistent header layout and route wiring for Home, About RICHUAL, Programs, Membership, Ritual Philosophy, Apply, plus an unlinked admin review route."
-        },
-        {
-          "path": "frontend/src/components/site/HeaderNav.tsx",
-          "operation": "create",
-          "description": "Create a persistent header navigation component with links to the required public pages (excluding admin). Use shadcn-ui primitives (e.g., Button) for consistent nav/CTA styling; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "create",
-          "description": "Create the Home page view and export it for router integration."
-        },
-        {
-          "path": "frontend/src/pages/AboutPage.tsx",
-          "operation": "create",
-          "description": "Create the About RICHUAL page view and export it for router integration."
-        },
-        {
-          "path": "frontend/src/pages/ProgramsPage.tsx",
-          "operation": "create",
-          "description": "Create the Programs page view and export it for router integration."
-        },
-        {
-          "path": "frontend/src/pages/MembershipPage.tsx",
-          "operation": "create",
-          "description": "Create the Membership page view and export it for router integration."
-        },
-        {
-          "path": "frontend/src/pages/RitualPhilosophyPage.tsx",
-          "operation": "create",
-          "description": "Create the Ritual Philosophy page view and export it for router integration."
-        },
-        {
-          "path": "frontend/src/pages/ApplyPage.tsx",
-          "operation": "create",
-          "description": "Create the Apply page view with the application form and export it for router integration."
-        },
-        {
-          "path": "frontend/src/main.tsx",
           "operation": "modify",
-          "description": "Ensure the app renders the newly created App component and global styles load correctly after adding/adjusting src-level styling imports."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "create",
-          "description": "Add a src-level CSS entry so the existing main.tsx import './index.css' resolves; keep this file as the single global styling entry point (may forward/import existing project CSS if needed)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Apply a consistent dark luxury RICHUAL theme (matte black + metallic gold + deep saffron) with bold uppercase headings and premium minimal layout.",
-      "acceptanceCriteria": [
-        "All pages share a consistent color palette (matte black background, gold accents, saffron highlights).",
-        "Headings are visually distinct, bold, and uppercase; body text is clean and readable with strong contrast.",
-        "The UI avoids playful/casual styling and maintains a minimal, premium look site-wide."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Define/override global theme tokens and base typography to match matte black background, metallic gold primary accents, and deep saffron highlight accents; ensure high-contrast defaults site-wide."
-        },
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Extend Tailwind theme tokens to include RICHUAL-specific brand colors (gold primary and saffron highlight) to be used consistently across pages/components."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Apply a global dark-mode class/structure (e.g., root wrapper) and consistent layout spacing/typography rules so all pages inherit the premium theme."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Implement Home page hero + CTA to Apply and sections introducing the concept, four ranks, and Sanskrit discipline-code statements.",
-      "acceptanceCriteria": [
-        "Home hero displays the headline \"Enter the Order.\" prominently.",
-        "The \"Apply for Membership\" CTA is visible above the fold and navigates to the Apply page when clicked.",
-        "Home includes a section listing the four ranks: Initiate, Warrior, Titan, Inner Circle.",
-        "Home includes visible Sanskrit text: शक्ति, तपस्या, विकास."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Build the Home hero with headline \"Enter the Order.\", an above-the-fold primary CTA routing to Apply, and sections for (a) concept framing (not a gym / initiation), (b) four ranks listing, and (c) discipline-code statements featuring Sanskrit text शक्ति, तपस्या, विकास. Use shadcn-ui components (e.g., Button/Card) for premium section structure; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Ensure the Home route is set as the default route and that the Apply route exists for the hero CTA navigation."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Implement About RICHUAL page with disciplined philosophy framing (not a normal gym) and include Sanskrit phrases in copy.",
-      "acceptanceCriteria": [
-        "About page clearly explains the RICHUAL philosophy and positions it as more than a gym.",
-        "About page includes the Sanskrit phrases शक्ति, तपस्या, and विकास rendered correctly.",
-        "Content tone is commanding and minimal (short impactful statements)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/AboutPage.tsx",
-          "operation": "modify",
-          "description": "Add commanding, minimal copy that explains the ritual/disciplined approach and explicitly positions RICHUAL as more than a gym; include Sanskrit phrases शक्ति, तपस्या, विकास in-line and ensure readable high-contrast typography."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Implement Programs page with four rank sections/cards presented as hierarchical ranks with concise commanding descriptions.",
-      "acceptanceCriteria": [
-        "Programs page displays exactly four rank entries: Initiate, Warrior, Titan, Inner Circle.",
-        "Each rank is styled consistently as a hierarchical rank (e.g., strong title treatment, premium card/section styling).",
-        "Each rank has a short description; language does not feel like casual sales copy."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/ProgramsPage.tsx",
-          "operation": "modify",
-          "description": "Implement exactly four rank entries (Initiate, Warrior, Titan, Inner Circle) with consistent premium styling and concise, commanding descriptions. Use shadcn-ui Card (or equivalent) to reinforce rank hierarchy presentation; verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Implement Membership page emphasizing application-based entry, limited seats, premium positioning, and CTA to Apply.",
-      "acceptanceCriteria": [
-        "Membership page explicitly states application-based entry and limited availability.",
-        "Membership page includes a clear CTA that navigates to the Apply page.",
-        "Page tone and styling match the RICHUAL elite/premium theme."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/MembershipPage.tsx",
-          "operation": "modify",
-          "description": "Add content emphasizing application-based entry, limited seats, and premium/elite positioning with a clear CTA routing to the Apply page. Use shadcn-ui Button for the CTA treatment; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Ensure Apply route wiring supports CTA navigation from the Membership page."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Implement Ritual Philosophy page with structured sections for daily rituals (morning discipline, physical training, meditation, wealth focus, brotherhood).",
-      "acceptanceCriteria": [
-        "Ritual Philosophy page contains dedicated sections for morning discipline, physical training, meditation, wealth focus, and brotherhood.",
-        "The layout reads as a structured system (clear sectioning, consistent hierarchy).",
-        "Content tone aligns with sacred/ritual framing rather than casual fitness tips."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/RitualPhilosophyPage.tsx",
-          "operation": "modify",
-          "description": "Create a structured, sacred-feeling page layout with clearly separated sections for morning discipline, physical training, meditation, wealth focus, and brotherhood, using consistent hierarchy and minimal premium styling."
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Create Apply page form with required fields, submit button label, and client-side validation with clear English errors.",
-      "acceptanceCriteria": [
-        "Apply page renders a form with inputs for Name, Age, Current fitness level, Income goal, and a longer text field for motivation.",
-        "Submit button label is exactly \"Begin Your Transformation.\"",
-        "Form validates required fields on the client and shows clear inline or on-submit error messages in English."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/ApplyPage.tsx",
-          "operation": "modify",
-          "description": "Implement the application form with required fields: Name, Age, Current fitness level, Income goal, and \"Why do you want to join?\" plus a submit button labeled exactly \"Begin Your Transformation.\" Add client-side required validation and English error messages. Use shadcn-ui form inputs (Input/Textarea/Button) for consistent premium UI; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/lib/validation/applyApplication.ts",
-          "operation": "create",
-          "description": "Create centralized client-side validation helpers for the Apply form (required checks, numeric parsing for age, and readable English validation messages) to keep the Apply page component clean."
-        }
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "summary": "Wire Apply submission to backend call with loading/disabled state, success confirmation, error handling, and duplicate-submit prevention.",
-      "acceptanceCriteria": [
-        "Submitting the Apply form calls the backend and creates a stored application record.",
-        "While submitting, the submit button is disabled and a loading state is shown.",
-        "On success, the user sees a clear English confirmation message and the form resets or transitions to a confirmation view.",
-        "On failure, the user sees a clear English error message and can retry."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useSubmitApplication.ts",
-          "operation": "create",
-          "description": "Create a dedicated React hook that calls the backend submitApplication capability via useActor, manages loading/error/success states, and exposes a submit function to the Apply page."
-        },
-        {
-          "path": "frontend/src/pages/ApplyPage.tsx",
-          "operation": "modify",
-          "description": "Use the submit hook to call backend submitApplication, disable the submit button while submitting, show a clear loading state, and render a success confirmation state on success (and reset/transition). Show a clear English error message on failure and allow retry. Ensure the UI prevents duplicate submissions from the same interaction."
-        }
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "summary": "Add an unlinked admin review page protected by Internet Identity login and admin-only access, listing applications most recent first.",
-      "acceptanceCriteria": [
-        "Admin review page is not accessible from the public header navigation.",
-        "Viewing the admin review page requires Internet Identity login.",
-        "Only principals in an admin allowlist can view the applications list; non-admin authenticated users see an access denied message.",
-        "The admin page lists applications with at least: timestamp, name, age, fitness level, income goal, and motivation."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/AdminApplicationsPage.tsx",
-          "operation": "create",
-          "description": "Create an admin-only review page that prompts login when unauthenticated, checks admin status via backend isCallerAdmin, shows an access denied message for non-admins, and lists submitted applications (most recent first) using backend getApplications. Use shadcn-ui components for table/list layout where appropriate; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/auth/LoginButton.tsx",
-          "operation": "create",
-          "description": "Implement a Login/Logout button using the existing useInternetIdentity hook and react-query cache clearing guidance from the authorization component; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/hooks/useAdminApplications.ts",
-          "operation": "create",
-          "description": "Create a react-query hook that (when authenticated and admin) fetches applications via backend getApplications and returns a most-recent-first sorted view for the admin page."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Register a non-public route (e.g., /admin/applications) for the admin review page, ensuring it is not included in the public header navigation."
-        },
-        {
-          "path": "frontend/src/components/site/HeaderNav.tsx",
-          "operation": "modify",
-          "description": "Ensure the public header navigation does not include any link to the admin review route."
-        }
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "summary": "Add generated static art assets (emblem + textures + hero background) and apply them across the site as readable high-contrast accents/backgrounds.",
-      "acceptanceCriteria": [
-        "Generated images are saved as static assets under frontend/public/assets/generated and are referenced directly by the frontend (not served via the backend).",
-        "At least one texture/background asset is visible on the Home hero and does not reduce text contrast below readable levels.",
-        "A simple emblem/mark is visible in the header and/or footer and matches the dark luxury theme."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/richual-emblem.dim_512x512.png",
-          "operation": "create",
-          "description": "Add the generated static emblem asset at frontend/public/assets/generated/richual-emblem.dim_512x512.png for direct frontend referencing."
-        },
-        {
-          "path": "frontend/public/assets/generated/smoke-embers-texture.dim_2048x2048.png",
-          "operation": "create",
-          "description": "Add the generated static texture asset at frontend/public/assets/generated/smoke-embers-texture.dim_2048x2048.png for direct frontend referencing."
-        },
-        {
-          "path": "frontend/public/assets/generated/temple-stone-texture.dim_2048x2048.png",
-          "operation": "create",
-          "description": "Add the generated static texture asset at frontend/public/assets/generated/temple-stone-texture.dim_2048x2048.png for direct frontend referencing."
+          "description": "Make the footer referral link generation resilient (avoid any build-time/runtime hazards by guarding browser-only globals like window) to reduce risk of build/update failure during compilation and deployment."
         },
         {
           "path": "frontend/public/assets/generated/hero-gym-silhouette.dim_2400x1350.png",
           "operation": "create",
-          "description": "Add the generated static hero background asset at frontend/public/assets/generated/hero-gym-silhouette.dim_2400x1350.png for direct frontend referencing."
+          "description": "Ensure the generated hero image asset exists at the exact expected path so all routes render without missing-asset errors."
+        },
+        {
+          "path": "frontend/public/assets/generated/richual-emblem.dim_512x512.png",
+          "operation": "create",
+          "description": "Ensure the generated emblem image asset exists at the exact expected path so header/logo rendering is stable across rebuilds."
+        },
+        {
+          "path": "frontend/public/assets/generated/smoke-embers-texture.dim_2048x2048.png",
+          "operation": "create",
+          "description": "Ensure the generated smoke texture asset exists at the exact expected path so background overlays load correctly after redeploy."
+        },
+        {
+          "path": "frontend/public/assets/generated/temple-stone-texture.dim_2048x2048.png",
+          "operation": "create",
+          "description": "Ensure the generated stone texture asset exists at the exact expected path so all pages using this background render correctly after redeploy."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Verify and stabilize routing + header navigation for all existing public routes while keeping admin route unlinked.",
+      "acceptanceCriteria": [
+        "Each listed route loads without runtime errors in the browser.",
+        "Navigation from the header works for all public pages and the Apply CTA routes to /apply.",
+        "The admin page remains not linked from the public navigation."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/routes.ts",
+          "operation": "create",
+          "description": "Add a single source of truth for public route paths and header nav items to prevent regressions across /, /about, /programs, /membership, /ritual-philosophy, and /apply (do not include /admin/applications in the public nav list)."
         },
         {
           "path": "frontend/src/components/site/HeaderNav.tsx",
           "operation": "modify",
-          "description": "Reference frontend/public/assets/generated/richual-emblem.dim_512x512.png in the header as a visible emblem/mark while maintaining high contrast and premium spacing."
+          "description": "Wire header navigation to use the centralized public route definitions so header links (and the Apply CTA) remain correct, and ensure /admin/applications is not present in the public navigation."
         },
         {
-          "path": "frontend/src/pages/HomePage.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Apply at least one generated background/texture (e.g., frontend/public/assets/generated/hero-gym-silhouette.dim_2400x1350.png and/or frontend/public/assets/generated/smoke-embers-texture.dim_2048x2048.png) to the Home hero while preserving readability and contrast."
+          "description": "Reference the centralized route constants when defining routes (or otherwise ensure paths match the smoke-test list exactly) so all listed routes are consistently registered and reachable."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Ensure Apply submission success UX remains intact and admin applications review is strictly access-controlled with most-recent-first ordering.",
+      "acceptanceCriteria": [
+        "Submitting the Apply form results in a success confirmation state in the UI.",
+        "A new submission is persisted and appears in the admin applications list.",
+        "Applications are displayed most-recent-first on the admin page.",
+        "Non-admin users cannot access the applications list (access is restricted)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useAdminApplications.ts",
+          "operation": "modify",
+          "description": "Add an explicit enable/guard mechanism (e.g., accept an enabled flag or require confirmed admin state) so non-admin authenticated users do not attempt to load restricted application data; keep the returned list most-recent-first."
         },
         {
-          "path": "frontend/src/index.css",
+          "path": "frontend/src/pages/AdminApplicationsPage.tsx",
           "operation": "modify",
-          "description": "Add global utility classes (or base-layer styling) to support subtle background textures/overlays across sections without harming text contrast, ensuring assets remain accents rather than busy backgrounds."
+          "description": "Wire the admin guard so the applications query only runs after the admin check succeeds; render a clear English access-denied screen for non-admins and handle authorization errors gracefully without exposing restricted data."
+        },
+        {
+          "path": "frontend/src/hooks/useSubmitApplication.ts",
+          "operation": "modify",
+          "description": "Harden submission error handling (including authorization/runtime trap-style errors) so the Apply page reliably transitions to a success confirmation state on success and shows a clear English failure message on error."
+        },
+        {
+          "path": "frontend/src/pages/ApplyPage.tsx",
+          "operation": "modify",
+          "description": "Confirm the Apply form success confirmation state is reached after a successful submission and that submission failures are surfaced cleanly in English without breaking the page."
         }
       ]
     }

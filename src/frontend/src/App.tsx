@@ -7,8 +7,18 @@ import MembershipPage from './pages/MembershipPage';
 import RitualPhilosophyPage from './pages/RitualPhilosophyPage';
 import ApplyPage from './pages/ApplyPage';
 import AdminApplicationsPage from './pages/AdminApplicationsPage';
+import { ROUTES } from './utils/routes';
 
 function Layout() {
+  // Generate referral link safely (guard against SSR/build-time execution)
+  const getReferralLink = () => {
+    if (typeof window === 'undefined') {
+      return 'https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=richual';
+    }
+    const appId = encodeURIComponent(window.location.hostname || 'richual');
+    return `https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appId}`;
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <HeaderNav />
@@ -24,7 +34,7 @@ function Layout() {
             <p className="text-center md:text-right">
               Built with ❤️ using{' '}
               <a
-                href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`}
+                href={getReferralLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"
@@ -45,43 +55,43 @@ const rootRoute = createRootRoute({
 
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/',
+  path: ROUTES.HOME,
   component: HomePage,
 });
 
 const aboutRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/about',
+  path: ROUTES.ABOUT,
   component: AboutPage,
 });
 
 const programsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/programs',
+  path: ROUTES.PROGRAMS,
   component: ProgramsPage,
 });
 
 const membershipRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/membership',
+  path: ROUTES.MEMBERSHIP,
   component: MembershipPage,
 });
 
 const ritualPhilosophyRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/ritual-philosophy',
+  path: ROUTES.RITUAL_PHILOSOPHY,
   component: RitualPhilosophyPage,
 });
 
 const applyRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/apply',
+  path: ROUTES.APPLY,
   component: ApplyPage,
 });
 
 const adminRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/admin/applications',
+  path: ROUTES.ADMIN_APPLICATIONS,
   component: AdminApplicationsPage,
 });
 
