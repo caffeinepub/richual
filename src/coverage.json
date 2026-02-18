@@ -1,0 +1,312 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-18T04:23:43.737Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 12,
+    "implemented": 11,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Create a multi-page RICHUAL marketing website with the following top-level pages and navigation: Home, About RICHUAL, Programs, Membership, Ritual Philosophy, and Apply.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/site/HeaderNav.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/AboutPage.tsx",
+          "frontend/src/pages/ProgramsPage.tsx",
+          "frontend/src/pages/MembershipPage.tsx",
+          "frontend/src/pages/RitualPhilosophyPage.tsx",
+          "frontend/src/pages/ApplyPage.tsx",
+          "frontend/src/main.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/site/HeaderNav.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/AboutPage.tsx",
+          "frontend/src/pages/ProgramsPage.tsx",
+          "frontend/src/pages/MembershipPage.tsx",
+          "frontend/src/pages/RitualPhilosophyPage.tsx",
+          "frontend/src/pages/ApplyPage.tsx",
+          "frontend/src/main.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Wire the Apply form submission UI to call the backend create-application method; show a success confirmation state after submission and prevent duplicate submissions from the same UI interaction (e.g., disable the button while submitting).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useSubmitApplication.ts",
+          "frontend/src/pages/ApplyPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useSubmitApplication.ts",
+          "frontend/src/pages/ApplyPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Add a minimal admin-only review page (not linked from the public navigation) that displays the list of submitted applications (most recent first). Protect access using Internet Identity login and restrict viewing to a hardcoded allowlist of admin principals configured in the backend.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/AdminApplicationsPage.tsx",
+          "frontend/src/components/auth/LoginButton.tsx",
+          "frontend/src/hooks/useAdminApplications.ts",
+          "frontend/src/App.tsx",
+          "frontend/src/components/site/HeaderNav.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/AdminApplicationsPage.tsx",
+          "frontend/src/components/auth/LoginButton.tsx",
+          "frontend/src/hooks/useAdminApplications.ts",
+          "frontend/src/App.tsx",
+          "frontend/src/components/site/HeaderNav.tsx"
+        ]
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Generate and apply a coherent visual art direction as static assets: smoke/embers texture, subtle temple/stone texture background, and a simple RICHUAL emblem mark; use them across the site as backgrounds/accents while maintaining readability and high contrast.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/richual-emblem.dim_512x512.png",
+          "frontend/public/assets/generated/smoke-embers-texture.dim_2048x2048.png",
+          "frontend/public/assets/generated/temple-stone-texture.dim_2048x2048.png",
+          "frontend/public/assets/generated/hero-gym-silhouette.dim_2400x1350.png",
+          "frontend/src/components/site/HeaderNav.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/richual-emblem.dim_512x512.png",
+          "frontend/public/assets/generated/smoke-embers-texture.dim_2048x2048.png",
+          "frontend/public/assets/generated/temple-stone-texture.dim_2048x2048.png",
+          "frontend/public/assets/generated/hero-gym-silhouette.dim_2400x1350.png",
+          "frontend/src/components/site/HeaderNav.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Apply a consistent RICHUAL visual theme across the entire site: matte black base, metallic gold primary accents, deep saffron highlight accents; bold uppercase headings; clean modern body typography; high-contrast, minimal, premium layout; overall tone should feel elite, intense, and ritualistic (not casual or commercial).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Implement the Home page content and structure with: hero headline \"Enter the Order.\", a primary CTA button labeled \"Apply for Membership\" that routes to the Apply page, and sections that introduce the concept (not a gym, initiation), display the four ranks, and show short discipline-code statements including Sanskrit terms (शक्ति, तपस्या, विकास).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Implement the About RICHUAL page to explain the philosophy, the ritual/disciplined approach, and why RICHUAL is not a normal gym, including at least the Sanskrit phrases शक्ति, तपस्या, and विकास in the page copy.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/AboutPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/AboutPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Implement the Programs page with four distinct rank sections/cards: Initiate, Warrior, Titan, and Inner Circle, each presented as a rank (not a commodity package) with concise, commanding descriptions.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ProgramsPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ProgramsPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Implement the Membership page emphasizing an application-based entry system, limited seats, premium positioning, and an elite feel, with a clear CTA that routes to the Apply page.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/MembershipPage.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/MembershipPage.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Implement the Ritual Philosophy page describing daily rituals with clearly separated sections for: morning discipline, physical training, meditation, wealth focus, and brotherhood, presented as a structured and sacred system.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/RitualPhilosophyPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/RitualPhilosophyPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Create an Apply page with a form containing the following fields: Name, Age, Current fitness level, Income goal, and Why do you want to join?; include a submit button labeled \"Begin Your Transformation.\"",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ApplyPage.tsx",
+          "frontend/src/lib/validation/applyApplication.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ApplyPage.tsx",
+          "frontend/src/lib/validation/applyApplication.ts"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Persist Apply form submissions in the backend and expose backend methods to (a) create a new application and (b) list applications for administrative review.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/authorization/MixinAuthorization.mo",
+    "backend/authorization/access-control.mo",
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/assets/generated/hero-gym-silhouette.dim_2400x1350.png",
+    "frontend/public/assets/generated/richual-emblem.dim_512x512.png",
+    "frontend/public/assets/generated/smoke-embers-texture.dim_2048x2048.png",
+    "frontend/public/assets/generated/temple-stone-texture.dim_2048x2048.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/auth/LoginButton.tsx",
+    "frontend/src/components/site/HeaderNav.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useAdminApplications.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useIsAdmin.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/hooks/useSubmitApplication.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/validation/applyApplication.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AboutPage.tsx",
+    "frontend/src/pages/AdminApplicationsPage.tsx",
+    "frontend/src/pages/ApplyPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/MembershipPage.tsx",
+    "frontend/src/pages/ProgramsPage.tsx",
+    "frontend/src/pages/RitualPhilosophyPage.tsx",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

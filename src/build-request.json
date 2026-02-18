@@ -1,0 +1,256 @@
+{
+  "kind": "build_request",
+  "title": "Build the RICHUAL marketing website with application-based membership form",
+  "projectName": "RICHUAL",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a multi-page RICHUAL marketing website with the following top-level pages and navigation: Home, About RICHUAL, Programs, Membership, Ritual Philosophy, and Apply.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-2",
+          "msg-3"
+        ],
+        "quotes": [
+          "Implement required site pages: Home, About, Programs (Initiate/Warrior/Titan/Inner Circle), Membership, Ritual Philosophy, Apply"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A persistent header navigation provides links to Home, About, Programs, Membership, Ritual Philosophy, and Apply.",
+        "Each navigation item routes to a distinct page view.",
+        "All pages render without runtime errors and are usable on mobile and desktop screen sizes."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Apply a consistent RICHUAL visual theme across the entire site: matte black base, metallic gold primary accents, deep saffron highlight accents; bold uppercase headings; clean modern body typography; high-contrast, minimal, premium layout; overall tone should feel elite, intense, and ritualistic (not casual or commercial).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Dark luxury theme",
+          "Color Palette: Matte Black, Gold, Deep Saffron accents",
+          "Bold uppercase headings",
+          "Elite. Controlled. Dominant."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages share a consistent color palette (matte black background, gold accents, saffron highlights).",
+        "Headings are visually distinct, bold, and uppercase; body text is clean and readable with strong contrast.",
+        "The UI avoids playful/casual styling and maintains a minimal, premium look site-wide."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement the Home page content and structure with: hero headline \"Enter the Order.\", a primary CTA button labeled \"Apply for Membership\" that routes to the Apply page, and sections that introduce the concept (not a gym, initiation), display the four ranks, and show short discipline-code statements including Sanskrit terms (शक्ति, तपस्या, विकास).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Home Page... Strong headline: “Enter the Order.” CTA Button: “Apply for Membership”",
+          "Include Sanskrit phrases like: “शक्ति”... “तपस्या”... “विकास”"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home hero displays the headline \"Enter the Order.\" prominently.",
+        "The \"Apply for Membership\" CTA is visible above the fold and navigates to the Apply page when clicked.",
+        "Home includes a section listing the four ranks: Initiate, Warrior, Titan, Inner Circle.",
+        "Home includes visible Sanskrit text: शक्ति, तपस्या, विकास."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement the About RICHUAL page to explain the philosophy, the ritual/disciplined approach, and why RICHUAL is not a normal gym, including at least the Sanskrit phrases शक्ति, तपस्या, and विकास in the page copy.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "🔱 About RICHUAL Explain: Philosophy Ritual system Why this is not a normal gym The discipline code Include Sanskrit phrases like: “शक्ति”... “तपस्या”... “विकास”"
+        ]
+      },
+      "acceptanceCriteria": [
+        "About page clearly explains the RICHUAL philosophy and positions it as more than a gym.",
+        "About page includes the Sanskrit phrases शक्ति, तपस्या, and विकास rendered correctly.",
+        "Content tone is commanding and minimal (short impactful statements)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement the Programs page with four distinct rank sections/cards: Initiate, Warrior, Titan, and Inner Circle, each presented as a rank (not a commodity package) with concise, commanding descriptions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "🏋 Programs Section Divide into levels: Initiate Warrior Titan Inner Circle (Elite Membership) Each level should feel like a rank, not a package."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Programs page displays exactly four rank entries: Initiate, Warrior, Titan, Inner Circle.",
+        "Each rank is styled consistently as a hierarchical rank (e.g., strong title treatment, premium card/section styling).",
+        "Each rank has a short description; language does not feel like casual sales copy."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement the Membership page emphasizing an application-based entry system, limited seats, premium positioning, and an elite feel, with a clear CTA that routes to the Apply page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "👑 Membership System Application-based entry Limited seats Premium pricing Elite feel"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Membership page explicitly states application-based entry and limited availability.",
+        "Membership page includes a clear CTA that navigates to the Apply page.",
+        "Page tone and styling match the RICHUAL elite/premium theme."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement the Ritual Philosophy page describing daily rituals with clearly separated sections for: morning discipline, physical training, meditation, wealth focus, and brotherhood, presented as a structured and sacred system.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "📿 Ritual Philosophy Page Explain daily rituals: Morning discipline Physical training Meditation Wealth focus Brotherhood Make it feel sacred and structured."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Ritual Philosophy page contains dedicated sections for morning discipline, physical training, meditation, wealth focus, and brotherhood.",
+        "The layout reads as a structured system (clear sectioning, consistent hierarchy).",
+        "Content tone aligns with sacred/ritual framing rather than casual fitness tips."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Create an Apply page with a form containing the following fields: Name, Age, Current fitness level, Income goal, and Why do you want to join?; include a submit button labeled \"Begin Your Transformation.\"",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "📲 Join / Apply Page Form fields: Name Age Current fitness level Income goal Why do you want to join? CTA: “Begin Your Transformation.”"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Apply page renders a form with inputs for Name, Age, Current fitness level, Income goal, and a longer text field for motivation.",
+        "Submit button label is exactly \"Begin Your Transformation.\"",
+        "Form validates required fields on the client and shows clear inline or on-submit error messages in English."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Persist Apply form submissions in the backend and expose backend methods to (a) create a new application and (b) list applications for administrative review.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Build Apply/Join page form ... with submission handling"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores submitted applications durably (survive canister restart).",
+        "There is a backend method to create an application record from the Apply form data.",
+        "There is a backend method to list stored application records for later review.",
+        "All backend methods have stable, documented types matching the form fields (Name, Age, Current fitness level, Income goal, Motivation, plus a server-generated timestamp and unique id)."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Wire the Apply form submission UI to call the backend create-application method; show a success confirmation state after submission and prevent duplicate submissions from the same UI interaction (e.g., disable the button while submitting).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Build Apply/Join page form ... with submission handling"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Submitting the Apply form calls the backend and creates a stored application record.",
+        "While submitting, the submit button is disabled and a loading state is shown.",
+        "On success, the user sees a clear English confirmation message and the form resets or transitions to a confirmation view.",
+        "On failure, the user sees a clear English error message and can retry."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Add a minimal admin-only review page (not linked from the public navigation) that displays the list of submitted applications (most recent first). Protect access using Internet Identity login and restrict viewing to a hardcoded allowlist of admin principals configured in the backend.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "application-based membership form",
+          "submission handling"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin review page is not accessible from the public header navigation.",
+        "Viewing the admin review page requires Internet Identity login.",
+        "Only principals in an admin allowlist can view the applications list; non-admin authenticated users see an access denied message.",
+        "The admin page lists applications with at least: timestamp, name, age, fitness level, income goal, and motivation."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Generate and apply a coherent visual art direction as static assets: smoke/embers texture, subtle temple/stone texture background, and a simple RICHUAL emblem mark; use them across the site as backgrounds/accents while maintaining readability and high contrast.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Background: intense gym visuals + subtle Shiva-inspired energy",
+          "Background: Smoke Fire sparks Temple architecture textures"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are saved as static assets under frontend/public/assets/generated and are referenced directly by the frontend (not served via the backend).",
+        "At least one texture/background asset is visible on the Home hero and does not reduce text contrast below readable levels.",
+        "A simple emblem/mark is visible in the header and/or footer and matches the dark luxury theme."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for all user-facing UI text in the application.",
+    "Backend must follow the single-actor architecture (all Motoko logic in one main actor).",
+    "Do not edit any files under the frontend immutable paths listed in SYSTEM_CONTEXT; compose existing UI components instead."
+  ],
+  "nonGoals": [
+    "Do not implement payments, subscriptions, or checkout flows at this stage.",
+    "Do not implement real-time features (notifications, chat, websockets).",
+    "Do not integrate third-party authentication providers other than Internet Identity.",
+    "Do not promise or configure a custom domain name within this build request."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Metallic gold-on-black emblem mark with trident-inspired geometry, minimal, high contrast (richual-emblem.dim_512x512.png)",
+      "Seamless dark smoke texture with subtle ember sparks, high contrast but not busy (smoke-embers-texture.dim_2048x2048.png)",
+      "Dark stone/temple wall texture, subtle, seamless (temple-stone-texture.dim_2048x2048.png)",
+      "Wide cinematic dark gym silhouette background with dramatic lighting and smoke, no text (hero-gym-silhouette.dim_2400x1350.png)"
+    ],
+    "edits": []
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-18T04:23:43.733Z",
+  "summary": "Frontend implements multi-page routing, themed styling, core marketing pages, and an admin applications page gated by Internet Identity. However, the Apply form and backend application data model do not match the requested fields/types, backend persistence does not appear durable across restarts, and the admin allowlist requirement is not evidenced in the backend. Some additional, unrequested fields and access-control behaviors were introduced.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Persistent header navigation provides links to Home, About, Programs, Membership, Ritual Philosophy, and Apply.",
+      "reason": "Header navigation defines links for Home/About/Programs/Membership/Ritual Philosophy, but does not include an explicit Apply link; instead it uses an \"APPLY NOW\" button (not clearly a nav link item).",
+      "evidence": [
+        "frontend/src/components/site/HeaderNav.tsx"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "Apply page form contains fields: Name, Age, Current fitness level, Income goal, and Why do you want to join?, with client validation and English errors.",
+      "reason": "The Apply form collects firstName, lastName, email in addition to age/fitnessLevel/incomeGoal/motivation; it does not implement a single \"Name\" field as specified.",
+      "evidence": [
+        "frontend/src/pages/ApplyPage.tsx",
+        "frontend/src/lib/validation/applyApplication.ts"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "requirement": "Persist Apply form submissions durably and expose stable backend methods to create an application and list applications with types matching requested fields (Name, Age, Current fitness level, Income goal, Motivation, plus server-generated timestamp and unique id).",
+      "reason": "Backend stores applications in in-memory vars (\"var applications : [Application] = []\" / \"var currentId\") with no stable storage or upgrade hooks shown; and the Application type uses firstName/lastName/email/bio/motivation/experience rather than the requested field set (name/age/fitness level/income goal/motivation).",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/pages/ApplyPage.tsx"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "Restrict admin review access to a hardcoded allowlist of admin principals configured in the backend.",
+      "reason": "Backend authorization checks call AccessControl.isAdmin(...) but the diff does not show any hardcoded admin principal allowlist configuration in backend/main.mo; instead, frontend initializes access control using a secret token parameter.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Apply flow collects and stores extra applicant fields (first name, last name, email, bio, experience) instead of only the requested fields.",
+      "reason": "BuildRequest specifies Name/Age/Fitness level/Income goal/Motivation; the diff adds additional identity/contact fields and a different backend schema.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/pages/ApplyPage.tsx",
+        "frontend/src/lib/validation/applyApplication.ts",
+        "frontend/src/hooks/useSubmitApplication.ts"
+      ]
+    },
+    {
+      "description": "Admin access-control initialization via secret URL parameter (caffeineAdminToken) and actor method _initializeAccessControlWithSecret.",
+      "reason": "BuildRequest requires a hardcoded allowlist of admin principals in the backend; it does not request a secret-token bootstrap mechanism via URL parameter.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Application status lifecycle fields (#pending/#approved/#declined) added to backend Application records.",
+      "reason": "BuildRequest does not request application status tracking, only storage + listing for review.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Footer includes marketing attribution link to caffeine.ai and \"Built with ❤️\" text.",
+      "reason": "Not requested in the BuildRequest marketing site requirements and introduces additional external branding.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/auth/LoginButton.tsx",
+    "frontend/src/components/site/HeaderNav.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useAdminApplications.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useIsAdmin.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/hooks/useSubmitApplication.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/validation/applyApplication.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AboutPage.tsx",
+    "frontend/src/pages/AdminApplicationsPage.tsx",
+    "frontend/src/pages/ApplyPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/MembershipPage.tsx",
+    "frontend/src/pages/ProgramsPage.tsx",
+    "frontend/src/pages/RitualPhilosophyPage.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}
