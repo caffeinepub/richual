@@ -1,0 +1,67 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-retry-the-previously-failed-build-update-so-the-project-builds-successfully-without-the-prior-ai-service-error-and-publish-the-updated-version-of-the-existing-richual-site",
+      "featureTitle": "Retry the previously failed build/update so the project builds successfully without the prior AI service error, and publish the updated version of the existing RICHUAL site.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-after-the-successful-rebuild-redeploy-perform-a-smoke-test-of-all-existing-routes-to-confirm-there-are-no-regressions-about-programs-membership-ritual-philosophy-apply-and-admin-applications",
+      "featureTitle": "After the successful rebuild/redeploy, perform a smoke test of all existing routes to confirm there are no regressions: /, /about, /programs, /membership, /ritual-philosophy, /apply, and /admin/applications.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/site/HeaderNav.tsx",
+        "frontend/src/utils/routes.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-verify-the-end-to-end-application-submission-and-admin-review-flows-still-function-after-the-rebuild-submitting-an-application-from-the-apply-page-persists-it-in-the-backend-and-an-authenticated-admin-can-view-submissions-most-recent-first-on-admin-applications-while-non-admins-are-blocked",
+      "featureTitle": "Verify the end-to-end application submission and admin review flows still function after the rebuild: submitting an application from the Apply page persists it in the backend, and an authenticated admin can view submissions (most recent first) on /admin/applications while non-admins are blocked.",
+      "files": [
+        "frontend/src/hooks/useAdminApplications.ts",
+        "frontend/src/hooks/useSubmitApplication.ts",
+        "frontend/src/pages/AdminApplicationsPage.tsx",
+        "frontend/src/pages/ApplyPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

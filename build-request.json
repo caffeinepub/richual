@@ -1,0 +1,76 @@
+{
+  "kind": "build_request",
+  "title": "Retry failed build/deploy and verify live RICHUAL site",
+  "projectName": "RICHUAL",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "text": "Retry the previously failed build/update so the project builds successfully without the prior AI service error, and publish the updated version of the existing RICHUAL site.",
+      "target": "unknown",
+      "source": {
+        "messageIds": [
+          "msg-recent-yes-1"
+        ],
+        "quotes": [
+          "Yes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A full build completes successfully (no AI service error during the build/update).",
+        "The updated version is published and accessible as a live site."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "After the successful rebuild/redeploy, perform a smoke test of all existing routes to confirm there are no regressions: /, /about, /programs, /membership, /ritual-philosophy, /apply, and /admin/applications.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-recent-yes-1"
+        ],
+        "quotes": [
+          "Yes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each listed route loads without runtime errors in the browser.",
+        "Navigation from the header works for all public pages and the Apply CTA routes to /apply.",
+        "The admin page remains not linked from the public navigation."
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Verify the end-to-end application submission and admin review flows still function after the rebuild: submitting an application from the Apply page persists it in the backend, and an authenticated admin can view submissions (most recent first) on /admin/applications while non-admins are blocked.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-recent-yes-1"
+        ],
+        "quotes": [
+          "Yes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Submitting the Apply form results in a success confirmation state in the UI.",
+        "A new submission is persisted and appears in the admin applications list.",
+        "Applications are displayed most-recent-first on the admin page.",
+        "Non-admin users cannot access the applications list (access is restricted)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor with all logic in backend/main.mo; only add backend/migration.mo if an actual state upgrade is required.",
+    "Do not edit files under frontend/src/components/ui or any other paths listed in frontend.immutablePaths; compose existing components instead.",
+    "Use English for any user-facing text introduced or modified by this build."
+  ],
+  "nonGoals": [
+    "Adding new marketing pages or changing the site’s information architecture.",
+    "Introducing third-party authentication providers (only Internet Identity is supported).",
+    "Adding external databases or non-Motoko backend services."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

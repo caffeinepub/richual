@@ -1,0 +1,67 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-18T13:12:18.374Z",
+  "summary": "The diff implements several frontend adjustments around routing consistency, admin access gating, application submission UX, and sorting applications most-recent-first. However, requirements that involve actually rebuilding/redeploying, publishing, and performing/recording smoke tests are not evidenced by the code diff. Backend persistence and authorization guarantees cannot be verified from the provided diff summary (no backend changes shown).",
+  "missing_requirements": [
+    {
+      "id": "REQ-13",
+      "requirement": "Retry the previously failed build/update so the project builds successfully without the prior AI service error, and publish the updated version of the existing RICHUAL site.",
+      "reason": "The diff shows code changes but contains no evidence of a completed build, resolved build pipeline/service error, or a redeploy/publish step resulting in a live accessible site.",
+      "evidence": [
+        "File diff summary only includes source changes (e.g., frontend/src/App.tsx) and no deployment/build artifacts or configuration changes indicating a successful redeploy."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "requirement": "After the successful rebuild/redeploy, perform a smoke test of all existing routes (/, /about, /programs, /membership, /ritual-philosophy, /apply, /admin/applications) and confirm header navigation + Apply CTA routing; admin page not linked from public navigation.",
+      "reason": "While the diff updates routing constants and public nav items (which helps), it does not provide evidence that an actual browser smoke test was performed for each route, nor runtime verification results.",
+      "evidence": [
+        "frontend/src/utils/routes.ts",
+        "frontend/src/App.tsx",
+        "frontend/src/components/site/HeaderNav.tsx"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "requirement": "Verify end-to-end application submission persists in backend and admin review works post-redeploy (most-recent-first; non-admin blocked).",
+      "reason": "Frontend changes suggest sorting and access gating, but the diff provides no evidence of backend persistence behavior being verified or adjusted (no backend/main.mo changes shown), and no explicit end-to-end verification artifacts/results are present in the diff.",
+      "evidence": [
+        "frontend/src/hooks/useAdminApplications.ts",
+        "frontend/src/pages/AdminApplicationsPage.tsx",
+        "frontend/src/hooks/useSubmitApplication.ts",
+        "frontend/src/pages/ApplyPage.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added a centralized frontend route constants module (ROUTES) and PUBLIC_NAV_ITEMS abstraction.",
+      "reason": "The BuildRequest focuses on retrying build/redeploy and verifying flows; it does not request a routing constants refactor or new routes utility module.",
+      "evidence": [
+        "frontend/src/utils/routes.ts",
+        "frontend/src/App.tsx",
+        "frontend/src/components/site/HeaderNav.tsx"
+      ]
+    },
+    {
+      "description": "Introduced/modified footer referral link logic and user-facing footer copy: \"Built with ❤️ using caffeine.ai\" including an emoji heart, plus build-time window guard and UTM/referral behavior.",
+      "reason": "Not requested in any requirement; additionally introduces an emoji in user-facing text which may conflict with the constraint to use English for user-facing text introduced/modified (emoji is not English text).",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/App.tsx",
+    "frontend/src/components/site/HeaderNav.tsx",
+    "frontend/src/hooks/useAdminApplications.ts",
+    "frontend/src/hooks/useSubmitApplication.ts",
+    "frontend/src/pages/AdminApplicationsPage.tsx",
+    "frontend/src/pages/ApplyPage.tsx",
+    "frontend/src/utils/routes.ts",
+    "project_state.json"
+  ]
+}

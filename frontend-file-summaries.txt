@@ -1,0 +1,20 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup defining all routes with centralized route constants, and a hardened footer referral link that guards against build-time window access.",
+  "frontend/src/components/site/HeaderNav.tsx": "Persistent header navigation component using centralized route constants for all public navigation items, with RICHUAL emblem logo and prominent \"APPLY NOW\" CTA button.",
+  "frontend/src/pages/HomePage.tsx": "Home page featuring full-screen hero with gym silhouette background, \"Enter the Order\" headline, four ranks section, Sanskrit phrases (शक्ति, तपस्या, विकास), and discipline code statements.",
+  "frontend/src/pages/AboutPage.tsx": "About page explaining RICHUAL philosophy, ritual system, discipline code, and Sanskrit meanings with commanding minimal tone and structured layout.",
+  "frontend/src/pages/ProgramsPage.tsx": "Programs page displaying four hierarchical ranks (Initiate, Warrior, Titan, Inner Circle) as premium cards with focus areas and commanding descriptions.",
+  "frontend/src/pages/MembershipPage.tsx": "Membership page emphasizing application-based entry, limited seats, elite positioning, benefits, and application process with CTA to Apply page.",
+  "frontend/src/pages/RitualPhilosophyPage.tsx": "Ritual Philosophy page with structured sections for five daily rituals (morning discipline, physical training, meditation, wealth focus, brotherhood) presented as a sacred system.",
+  "frontend/src/pages/ApplyPage.tsx": "Application form page with client-side validation, loading states, comprehensive error display, and success confirmation view that reliably transitions after successful submission.",
+  "frontend/src/pages/AdminApplicationsPage.tsx": "Admin-only page with strict access control that only fetches applications after admin verification succeeds, displaying clear English error messages for unauthorized access or fetch failures.",
+  "frontend/src/components/auth/LoginButton.tsx": "Login/logout button component using Internet Identity with loading states, query cache clearing on logout, and gold-themed styling.",
+  "frontend/src/hooks/useSubmitApplication.ts": "React hook for submitting applications with comprehensive error handling for authorization, network, and runtime errors, providing clear English feedback to users.",
+  "frontend/src/hooks/useAdminApplications.ts": "React Query hook for fetching admin-only applications list with explicit enabled flag, most-recent-first sorting, and graceful authorization error handling.",
+  "frontend/src/hooks/useIsAdmin.ts": "React Query hook for checking if current user is admin via backend isCallerAdmin call, enabled only when authenticated.",
+  "frontend/src/lib/validation/applyApplication.ts": "Client-side validation logic for application form with required field checks, email format validation, age range validation, and minimum character requirements.",
+  "frontend/src/index.css": "Global styles with RICHUAL dark luxury theme (matte black, metallic gold, deep saffron) using OKLCH color system, custom utility classes, and bold uppercase typography.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with RICHUAL brand colors (gold, saffron), Inter font family, zero border radius, and custom gold-glow shadow.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as all React Query hooks are implemented in dedicated files per feature.",
+  "frontend/src/utils/routes.ts": "Central source of truth for all route paths and public navigation items, ensuring consistent routing across the application and excluding admin routes from public navigation."
+}

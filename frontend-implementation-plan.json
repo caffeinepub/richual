@@ -1,0 +1,100 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "RICHUAL frontend rebuild hardening + route and flow verification",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "summary": "Harden frontend codepaths to avoid build/update failures and ensure deploy-ready static assets are correctly wired.",
+      "acceptanceCriteria": [
+        "A full build completes successfully (no AI service error during the build/update).",
+        "The updated version is published and accessible as a live site."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Make the footer referral link generation resilient (avoid any build-time/runtime hazards by guarding browser-only globals like window) to reduce risk of build/update failure during compilation and deployment."
+        },
+        {
+          "path": "frontend/public/assets/generated/hero-gym-silhouette.dim_2400x1350.png",
+          "operation": "create",
+          "description": "Ensure the generated hero image asset exists at the exact expected path so all routes render without missing-asset errors."
+        },
+        {
+          "path": "frontend/public/assets/generated/richual-emblem.dim_512x512.png",
+          "operation": "create",
+          "description": "Ensure the generated emblem image asset exists at the exact expected path so header/logo rendering is stable across rebuilds."
+        },
+        {
+          "path": "frontend/public/assets/generated/smoke-embers-texture.dim_2048x2048.png",
+          "operation": "create",
+          "description": "Ensure the generated smoke texture asset exists at the exact expected path so background overlays load correctly after redeploy."
+        },
+        {
+          "path": "frontend/public/assets/generated/temple-stone-texture.dim_2048x2048.png",
+          "operation": "create",
+          "description": "Ensure the generated stone texture asset exists at the exact expected path so all pages using this background render correctly after redeploy."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Verify and stabilize routing + header navigation for all existing public routes while keeping admin route unlinked.",
+      "acceptanceCriteria": [
+        "Each listed route loads without runtime errors in the browser.",
+        "Navigation from the header works for all public pages and the Apply CTA routes to /apply.",
+        "The admin page remains not linked from the public navigation."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/routes.ts",
+          "operation": "create",
+          "description": "Add a single source of truth for public route paths and header nav items to prevent regressions across /, /about, /programs, /membership, /ritual-philosophy, and /apply (do not include /admin/applications in the public nav list)."
+        },
+        {
+          "path": "frontend/src/components/site/HeaderNav.tsx",
+          "operation": "modify",
+          "description": "Wire header navigation to use the centralized public route definitions so header links (and the Apply CTA) remain correct, and ensure /admin/applications is not present in the public navigation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Reference the centralized route constants when defining routes (or otherwise ensure paths match the smoke-test list exactly) so all listed routes are consistently registered and reachable."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Ensure Apply submission success UX remains intact and admin applications review is strictly access-controlled with most-recent-first ordering.",
+      "acceptanceCriteria": [
+        "Submitting the Apply form results in a success confirmation state in the UI.",
+        "A new submission is persisted and appears in the admin applications list.",
+        "Applications are displayed most-recent-first on the admin page.",
+        "Non-admin users cannot access the applications list (access is restricted)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useAdminApplications.ts",
+          "operation": "modify",
+          "description": "Add an explicit enable/guard mechanism (e.g., accept an enabled flag or require confirmed admin state) so non-admin authenticated users do not attempt to load restricted application data; keep the returned list most-recent-first."
+        },
+        {
+          "path": "frontend/src/pages/AdminApplicationsPage.tsx",
+          "operation": "modify",
+          "description": "Wire the admin guard so the applications query only runs after the admin check succeeds; render a clear English access-denied screen for non-admins and handle authorization errors gracefully without exposing restricted data."
+        },
+        {
+          "path": "frontend/src/hooks/useSubmitApplication.ts",
+          "operation": "modify",
+          "description": "Harden submission error handling (including authorization/runtime trap-style errors) so the Apply page reliably transitions to a success confirmation state on success and shows a clear English failure message on error."
+        },
+        {
+          "path": "frontend/src/pages/ApplyPage.tsx",
+          "operation": "modify",
+          "description": "Confirm the Apply form success confirmation state is reached after a successful submission and that submission failures are surfaced cleanly in English without breaking the page."
+        }
+      ]
+    }
+  ]
+}

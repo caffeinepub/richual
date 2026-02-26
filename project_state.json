@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Build and deploy the RICHUAL brand website (dark luxury black/gold, commanding tone) including core marketing pages and an application-based membership form.",
+  "architectural_notes": [
+    "Proposed build stack: React frontend + Motoko backend, with Internet Identity login (if needed)."
+  ],
+  "known_issues": [
+    "User expects a live website/URL; current outputs are prompts/copy only until the site is built and deployed.",
+    "Build/deploy pipeline encountered an AI service error during an attempted update; user requested a retry."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-multi-page-richual-marketing-website-with-the-following-top-level-pages-and-navigation-home-about-richual-programs-membership-ritual-philosophy-and-apply",
+      "title": "Create a multi-page RICHUAL marketing website with the following top-level pages and navigation: Home, About RICHUAL, Programs, Membership, Ritual Philosophy, and Apply.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-consistent-richual-visual-theme-across-the-entire-site-matte-black-base-metallic-gold-primary-accents-deep-saffron-highlight-accents-bold-uppercase-headings-clean-modern-body-typography-high-contrast-minimal-premium-layout-overall-tone-should-feel-elite-intense-and-ritualistic-not-casual-or-commercial",
+      "title": "Apply a consistent RICHUAL visual theme across the entire site: matte black base, metallic gold primary accents, deep saffron highlight accents; bold uppercase headings; clean modern body typography; high-contrast, minimal, premium layout; overall tone should feel elite, intense, and ritualistic (not casual or commercial).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-home-page-content-and-structure-with-hero-headline-enter-the-order-a-primary-cta-button-labeled-apply-for-membership-that-routes-to-the-apply-page-and-sections-that-introduce-the-concept-not-a-gym-initiation-display-the-four-ranks-and-show-short-discipline-code-statements-including-sanskrit-terms",
+      "title": "Implement the Home page content and structure with: hero headline \"Enter the Order.\", a primary CTA button labeled \"Apply for Membership\" that routes to the Apply page, and sections that introduce the concept (not a gym, initiation), display the four ranks, and show short discipline-code statements including Sanskrit terms (शक्ति, तपस्या, विकास).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-about-richual-page-to-explain-the-philosophy-the-ritual-disciplined-approach-and-why-richual-is-not-a-normal-gym-including-at-least-the-sanskrit-phrases-and-in-the-page-copy",
+      "title": "Implement the About RICHUAL page to explain the philosophy, the ritual/disciplined approach, and why RICHUAL is not a normal gym, including at least the Sanskrit phrases शक्ति, तपस्या, and विकास in the page copy.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-programs-page-with-four-distinct-rank-sections-cards-initiate-warrior-titan-and-inner-circle-each-presented-as-a-rank-not-a-commodity-package-with-concise-commanding-descriptions",
+      "title": "Implement the Programs page with four distinct rank sections/cards: Initiate, Warrior, Titan, and Inner Circle, each presented as a rank (not a commodity package) with concise, commanding descriptions.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-membership-page-emphasizing-an-application-based-entry-system-limited-seats-premium-positioning-and-an-elite-feel-with-a-clear-cta-that-routes-to-the-apply-page",
+      "title": "Implement the Membership page emphasizing an application-based entry system, limited seats, premium positioning, and an elite feel, with a clear CTA that routes to the Apply page.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-ritual-philosophy-page-describing-daily-rituals-with-clearly-separated-sections-for-morning-discipline-physical-training-meditation-wealth-focus-and-brotherhood-presented-as-a-structured-and-sacred-system",
+      "title": "Implement the Ritual Philosophy page describing daily rituals with clearly separated sections for: morning discipline, physical training, meditation, wealth focus, and brotherhood, presented as a structured and sacred system.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-apply-page-with-a-form-containing-the-following-fields-name-age-current-fitness-level-income-goal-and-why-do-you-want-to-join-include-a-submit-button-labeled-begin-your-transformation",
+      "title": "Create an Apply page with a form containing the following fields: Name, Age, Current fitness level, Income goal, and Why do you want to join?; include a submit button labeled \"Begin Your Transformation.\"",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-wire-the-apply-form-submission-ui-to-call-the-backend-create-application-method-show-a-success-confirmation-state-after-submission-and-prevent-duplicate-submissions-from-the-same-ui-interaction-e-g-disable-the-button-while-submitting",
+      "title": "Wire the Apply form submission UI to call the backend create-application method; show a success confirmation state after submission and prevent duplicate submissions from the same UI interaction (e.g., disable the button while submitting).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-minimal-admin-only-review-page-not-linked-from-the-public-navigation-that-displays-the-list-of-submitted-applications-most-recent-first-protect-access-using-internet-identity-login-and-restrict-viewing-to-a-hardcoded-allowlist-of-admin-principals-configured-in-the-backend",
+      "title": "Add a minimal admin-only review page (not linked from the public navigation) that displays the list of submitted applications (most recent first). Protect access using Internet Identity login and restrict viewing to a hardcoded allowlist of admin principals configured in the backend.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-apply-a-coherent-visual-art-direction-as-static-assets-smoke-embers-texture-subtle-temple-stone-texture-background-and-a-simple-richual-emblem-mark-use-them-across-the-site-as-backgrounds-accents-while-maintaining-readability-and-high-contrast",
+      "title": "Generate and apply a coherent visual art direction as static assets: smoke/embers texture, subtle temple/stone texture background, and a simple RICHUAL emblem mark; use them across the site as backgrounds/accents while maintaining readability and high contrast.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-retry-the-previously-failed-build-update-so-the-project-builds-successfully-without-the-prior-ai-service-error-and-publish-the-updated-version-of-the-existing-richual-site",
+      "title": "Retry the previously failed build/update so the project builds successfully without the prior AI service error, and publish the updated version of the existing RICHUAL site.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-the-successful-rebuild-redeploy-perform-a-smoke-test-of-all-existing-routes-to-confirm-there-are-no-regressions-about-programs-membership-ritual-philosophy-apply-and-admin-applications",
+      "title": "After the successful rebuild/redeploy, perform a smoke test of all existing routes to confirm there are no regressions: /, /about, /programs, /membership, /ritual-philosophy, /apply, and /admin/applications.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-the-end-to-end-application-submission-and-admin-review-flows-still-function-after-the-rebuild-submitting-an-application-from-the-apply-page-persists-it-in-the-backend-and-an-authenticated-admin-can-view-submissions-most-recent-first-on-admin-applications-while-non-admins-are-blocked",
+      "title": "Verify the end-to-end application submission and admin review flows still function after the rebuild: submitting an application from the Apply page persists it in the backend, and an authenticated admin can view submissions (most recent first) on /admin/applications while non-admins are blocked.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create and deploy the RICHUAL website (live, functioning site)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement required site pages: Home, About, Programs (Initiate/Warrior/Titan/Inner Circle), Membership, Ritual Philosophy, Apply",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Build Apply/Join page form (name, age, fitness level, income goal, motivation) with submission handling",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Apply RICHUAL visual/brand system to the site (matte black + gold + saffron, bold uppercase headings, smoke/sparks/temple textures, Sanskrit phrases)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Persist Apply form submissions in the backend and expose backend methods to (a) create a new application and (b) list applications for administrative review.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "RICHUAL",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
